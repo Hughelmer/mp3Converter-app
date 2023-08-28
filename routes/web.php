@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AudioConverterController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', [AudioConverterController::class, 'index']);
+Route::get('/convert', [AudioConverterController::class, 'convert']);
+Route::get('/download//{fileName', [AudioConverterController::class, 'download'])->name('download');
